@@ -1,182 +1,182 @@
 /*基本樣式*/
 
 * {
-  box-sizing: border-box;
-  font-family: "微軟正黑體", Arial, sans-serif;
-  /*border: 1px solid black;*/
+    box-sizing: border-box;
+    font-family: "微軟正黑體", Arial, sans-serif;
+    /*border: 1px solid black;*/
 }
 
 ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
 
 p {
-  font-size: 0.85em;
+    font-size: 0.85em;
 }
 
 /*導覽列*/
 
 .main-header {
-  background-color: #D3D3D3;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background-color: #D3D3D3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .icon {
-  width: 2em;
-  padding-right: 0.8em;
+    width: 2em;
+    padding-right: 0.8em;
 }
 
 .icon:hover {
-  cursor: pointer;
-  transform: scale(1.2);
+    cursor: pointer;
+    transform: scale(1.2);
 }
 
 .item {
-  display: none;
+    display: none;
 }
 
 
 .logo {
-  width: 1em;
+    width: 1em;
 }
 
 .name {
-  font-size: 1.35em;
-  padding-left: 0.5em;
+    font-size: 1.35em;
+    padding-left: 0.5em;
 }
 
 /*banner*/
 
 .banner {
-  background-color: #FF6347;
-  text-align: center;
-  padding: 5em;
-  color: #fff;
+    background-color: #FF6347;
+    text-align: center;
+    padding: 5em;
+    color: #fff;
 }
 
 .headline {
-  margin: 0;
-  padding-bottom: 1em;
+    margin: 0;
+    padding-bottom: 1em;
 }
 
 /*主要區域*/
 
 h2 {
-  text-align: center;
+    text-align: center;
 }
 
 
 .sec-title {
-  text-align: center;
-  font-size: 2em;
+    text-align: center;
+    font-size: 2em;
 }
 
 
 .row {
-  margin: 10px auto;
+    margin: 10px auto;
 }
 
 .col {
     /*background-color: #D3D3D3;*/
-  width: 90%;
-  margin: 0 auto;
-  /*border: 1px solid black;*/
-  padding-left: 1em;
-  padding-right: 1em;
+    width: 90%;
+    margin: 0 auto;
+    /*border: 1px solid black;*/
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .col h3 {
-  padding: 10px;
-  text-align: center;
-  margin: 0;
+    padding: 10px;
+    text-align: center;
+    margin: 0;
 }
 
 .col p {
-  margin-top: 0;
-  padding: 10px;
+    margin-top: 0;
+    padding: 10px;
 }
 
 
 /*footer*/
 .main-footer {
-	position: relative;
+    position: relative;
 }
 
 .button {
-  background-color: #FF6347;
-  text-align: center;
-  display: inline-block;
-  padding: 0.8em;
-  color: white;
-  border: 0.5px solid #D3D3D3;
-  border-radius: 5px;
-  margin: 10px auto 30px auto;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+    background-color: #FF6347;
+    text-align: center;
+    display: inline-block;
+    padding: 0.8em;
+    color: white;
+    border: 0.5px solid #D3D3D3;
+    border-radius: 5px;
+    margin: 10px auto 30px auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .col-1 {
-  background-color: #D3D3D3;
-  padding: 0 5 5 5px;
+    background-color: #D3D3D3;
+    padding: 0 5 5 5px;
 }
 
 @media screen and (min-width: 500px) {
 
-  .row {
-    display: flex;
-  }
+    .row {
+        display: flex;
+    }
 
 
-  .col {
-    width: 100%;
-    flex: 1 50%;
-   }
+    .col {
+        width: 100%;
+        flex: 1 50%;
+    }
 
-  .row {
-  	flex-wrap: wrap;
-  }
+    .row {
+        flex-wrap: wrap;
+    }
 }
 
 @media screen and (min-width: 800px) {
 
-  .main-header {
-    justify-content: space-between;
-  }
+    .main-header {
+        justify-content: space-between;
+    }
 
-  .nav-bar {
-    display: flex;
-  }
+    .nav-bar {
+        display: flex;
+    }
 
     .item {
-      display: initial;
-      padding: 1em;
+        display: initial;
+        padding: 1em;
     }
 
     .item:hover {
-      background-color: #C0C0C0;
-      cursor: pointer;
+        background-color: #C0C0C0;
+        cursor: pointer;
     }
 
     .icon {
-      display: none;
-      /*	order: -1;*/
+        display: none;
+        /*  order: -1;*/
     }
 }
 
 @media screen and (min-width: 1200px) {
-  .row {
-    max-width: 1200px;
-    align-items: center;
+    .row {
+        max-width: 1200px;
+        align-items: center;
 
     }
 }
