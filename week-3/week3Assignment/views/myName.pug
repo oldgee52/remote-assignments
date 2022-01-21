@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    title Week3 Assignment 4
+  body
+  h2 Week3 Assignment 4
+  if name
+      h3 Hi, #{name}
+      form(action='/bye', method='post')
+          button Goodbey
+
+  else
+      form(action='/trackName', method='get')
+          label Please enter your name:
+          input(type='text' name='name')
+          button(type='submit') Submit
+    

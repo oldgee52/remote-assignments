@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week3 Assignment 3</title>
+        <script>
+        const sumOfTen = new XMLHttpRequest();
+        sumOfTen.onreadystatechange = function() {
+            if (sumOfTen.readyState === 4 && sumOfTen.status === 200) {
+                document.getElementById('sumOfTen').innerHTML = sumOfTen.responseText
+            }
+        };
+        sumOfTen.open('GET', 'http://localhost:3000/getData?number=10');
+        sumOfTen.send();
+        </script>
+    </head>
+
+    <body>
+        <h1>Week3 Assignment 3</h1>
+        <h2> This is an example: Input 10 </h2>
+        <div id="sumOfTen" style="font-size: 20px;">
+        </div>
+        <hr>
+        <h2>Try it!</h2>
+        <h4>Input a positive integer</h4>
+        <input type="text" id="numberInput">
+        <button type="submit" onclick="calculate ()">Submit</button>
+        <div id="sum" style="font-size: 20px;padding-top: 10px;"></div>
+        <script>
+        //如果把numberInput 在function外宣告value回傳都會是空值(why??)
+        function calculate() {
+            const numberInput = document.getElementById("numberInput").value;
+            const sum = new XMLHttpRequest();
+            sum.open('GET', 'http://localhost:3000/getData?number=' + numberInput);
+            sum.onload = function () {
+            document.getElementById("sum").innerHTML = sum.responseText    
+            }
+            sum.send();
+        };
+        </script>
+    </body>
+
+</html>
