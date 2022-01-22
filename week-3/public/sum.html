@@ -29,13 +29,15 @@
         <button type="submit" onclick="calculate ()">Submit</button>
         <div id="sum" style="font-size: 20px;padding-top: 10px;"></div>
         <script>
-        //如果把numberInput 在function外宣告value回傳都會是空值(why??)
+        //如果把const numberInput = document.getElementById("numberInput").value在function外宣告value回傳都會是null 
+        //(why??→因在還沒觸發fuctionf前就宣告document.getElementById("numberInput").value等於是還沒輸入就取得值，所以永遠都是null )
+        //調整如下即可
+        const numberInput = document.getElementById("numberInput")
         function calculate() {
-            const numberInput = document.getElementById("numberInput").value;
             const sum = new XMLHttpRequest();
-            sum.open('GET', 'http://localhost:3000/getData?number=' + numberInput);
+            sum.open('GET', 'http://localhost:3000/getData?number=' + numberInput.value);
             sum.onload = function () {
-            document.getElementById("sum").innerHTML = sum.responseText    
+            document.getElementById("sum").innerHTML = sum.responseText;
             }
             sum.send();
         };
