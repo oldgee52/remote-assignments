@@ -1,0 +1,15 @@
+.products,
+.title {
+    margin: auto;
+    display: flex;
+}
+
+.name,
+.price,
+.description {
+    width: 33%;
+    margin: auto;
+    text-align: center;
+    flex-direction: row;
+    padding: 10px;
+}
