@@ -10,56 +10,35 @@ const HeaderList = (props) => {
 
 }
 
-class ToggleMenu extends React.Component {
-    state = {
-        toggleOn: true
-    };
-    handleClick = () => 
-        this.setState({toggleOn: !this.state.toggleOn});
-    
-    render() {
-        const openMuneStyle = this.state.toggleOn ? { right: "-35%" } : { right: "0", zIndex: "1" };
-        return (
-            <React.Fragment>
-                 <div className="menu" style={openMuneStyle}>
-                    <HeaderList 
-                    ul="close-bar"
-                    li= "menu-item" />
-                    <div className="close" onClick={this.handleClick}>X</div>
-                </div>
+const ToggleMenu = (props) => {
+    const openMuneStyle = props.toggleOnMenu ? { right: "-35%" } : { right: "0", zIndex: "1" };
+    return (
+        <React.Fragment>
+            <div className="menu" style={openMuneStyle}>
+                <HeaderList 
+                ul="close-bar"
+                li= "menu-item" />
+                <div className="close" onClick={props.handleClickMenu}>X</div>
+            </div>
                 <header className="main-header">
                     <h1 className="name">
                         <a href="#">week1 RWD<img className="logo" src="img/logo.png" alt="logo" /></a>
                     </h1>
-                    <HeaderList 
-                    ul="nav-bar"
-                    li= "item" />
-                    <img className="icon" src="img/menu.png" alt="icon" onClick={this.handleClick}/>
+                <HeaderList 
+                ul="nav-bar"
+                li= "item" />
+                <img className="icon" src="img/menu.png" alt="icon" onClick={props.handleClickMenu}/>
                 </header>
             </React.Fragment>
-        );
-    }
+    );
 }
 
-class ToggleHeadline extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            toggleOn: true
-        };
-    }
-    handleClick = () => {
-        this.setState({
-            toggleOn: !this.state.toggleOn
-        });
-    }
-    render() {
-        return (
-            <h1 className="headline" onClick={this.handleClick.bind(this)}>
-        {this.state.toggleOn ? 'Assignment1' : 'Have a Good Time!'}
+const ToggleHeadline = props => {
+    return (
+        <h1 className="headline" onClick={props.handleClickHeadline.bind(props)}>
+        {props.toggleOnHeadline ? 'Assignment1' : 'Have a Good Time!'}
         </h1>
-        );
-    }
+    );
 }
 
 function Section(props) {
@@ -95,65 +74,86 @@ function Section(props) {
     );
 }
 
-class ToggleLearning extends React.Component {
+const ToggleLearning = props => {
+    const style = props.toggleOnLearning ? { display: "none" } : { display: "block" };
+    const title = props.toggleOnLearning ? "Star to Learn" : "Week2 Learning";
+    return (
+        <React.Fragment>
+            <footer className="main-footer">
+                <div className="button" onClick={props.handleClickLearning}>{title}</div>
+            </footer>
+            <Section 
+            section="down-section"
+            style={style}
+            row= "row"
+            col= "col"
+            col_1= "col-1"
+            header1= "JavaScript"
+            content1= "JavaScript Basics"
+            header2= "JavaScript"
+            content2= "Loops &amp; Arrays &amp; Objects"
+            header3= "JavaScript"
+            content3= "Object-Oriented JavaScript"
+            header4= "JavaScript"
+            content4= "JavaScript &amp; the DOM"
+            />
+         </React.Fragment>
+    );
+}
+
+class App extends React.Component {
     state = {
-        toggleOn: true
+        toggleOnMenu: true,
+        toggleOnHeadline: true,
+        toggleOnLearning: true
     };
 
-    handleClick = () => {
-        this.setState({
-            toggleOn: !this.state.toggleOn
-        });
-    }
+    handleClickMenu = () => 
+        this.setState({toggleOnMenu: !this.state.toggleOnMenu});
+
+    handleClickHeadline = () => 
+        this.setState({toggleOnHeadline: !this.state.toggleOnHeadline});
+    
+    handleClickLearning = () => 
+        this.setState({toggleOnLearning: !this.state.toggleOnLearning});
+
     render() {
-        const style = this.state.toggleOn ? { display: "none" } : { display: "block" };
-        const title = this.state.toggleOn ? "Star to Learn" : "Week2 Learning";
         return (
             <React.Fragment>
-                <footer className="main-footer">
-                    <div className="button" onClick={this.handleClick}>{title}</div>
-                </footer>
+                <ToggleMenu 
+                 toggleOnMenu={this.state.toggleOnMenu}
+                 handleClickMenu={this.handleClickMenu}
+                 />
+                <div className="banner">
+                    <ToggleHeadline
+                    toggleOnHeadline={this.state.toggleOnHeadline}
+                    handleClickHeadline={this.handleClickHeadline} 
+                    />
+                    <span>RWD Page Layout in pure HTML/CSS</span>
+                </div>
+                <h2>Learning From Week1</h2>
                 <Section 
-                section="down-section"
-                style={style}
                 row= "row"
                 col= "col"
                 col_1= "col-1"
-                header1= "JavaScript"
-                content1= "JavaScript Basics"
-                header2= "JavaScript"
-                content2= "Loops &amp; Arrays &amp; Objects"
-                header3= "JavaScript"
-                content3= "Object-Oriented JavaScript"
-                header4= "JavaScript"
-                content4= "JavaScript &amp; the DOM"
+                header1= "HTML"
+                content1= "HTML Basics"
+                header2= "CSS"
+                content2= "CSS Basics &amp; Mobile-First CSS Layout"
+                header3= "Flexbox"
+                content3= "CSS Flexbox Layout &amp; Responsive Layouts"
+                header4= "Git/GitHub"
+                content4= "Version Control with Git &amp; Hosting Website with GitHub Pages"
                 />
-            </React.Fragment>
+                <ToggleLearning
+                toggleOnLearning={this.state.toggleOnLearning}
+                handleClickLearning={this.handleClickLearning}   
+                />
+             </React.Fragment>
         );
     }
 }
 
 ReactDOM.render(
-    <React.Fragment>
-        <ToggleMenu />
-        <div className="banner">
-            <ToggleHeadline />
-            <span>RWD Page Layout in pure HTML/CSS</span>
-        </div>
-        <h2>Learning From Week1</h2>
-        <Section 
-        row= "row"
-        col= "col"
-        col_1= "col-1"
-        header1= "HTML"
-        content1= "HTML Basics"
-        header2= "CSS"
-        content2= "CSS Basics &amp; Mobile-First CSS Layout"
-        header3= "Flexbox"
-        content3= "CSS Flexbox Layout &amp; Responsive Layouts"
-        header4= "Git/GitHub"
-        content4= "Version Control with Git &amp; Hosting Website with GitHub Pages"
-        />
-        <ToggleLearning  />
-    </React.Fragment>,
+    <App />,
     document.getElementById('root'));
