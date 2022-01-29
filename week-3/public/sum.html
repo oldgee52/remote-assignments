@@ -7,18 +7,18 @@
 	    <title>Week3 Assignment 3</title>
 	    <script>
 	        //相同程式碼利用function重複利用
-				function ajax (id, url, number) {
-						const xhr =new XMLHttpRequest();
-						xhr.onload = function () {
-						document.getElementById(id).innerHTML = this.responseText;
-						}
-						xhr.open('GET', url + number);
-						xhr.send();
-					};
+			function ajax (id, url, number) {
+				const xhr =new XMLHttpRequest();
+				xhr.onload = function () {
+					document.getElementById(id).innerHTML = this.responseText;
+				}
+				xhr.open('GET', url + number);
+				xhr.send();
+			};
 
 				//使用function ajax取得 10的答案
-				ajax('sumOfTen', 'http://localhost:3000/getData?number=', 10);
-	        </script>
+			ajax('sumOfTen', 'http://localhost:3000/getData?number=', 10);
+	    </script>
 	</head>
 
 	<body>
